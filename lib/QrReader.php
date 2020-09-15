@@ -97,6 +97,16 @@ final class QrReader
 
         return $this->result;
     }
+    
+    public function points()
+    {
+        $this->decode();
+        if (method_exists($this->result, 'getResultPoints')){
+            return $this->result->getResultPoints()->getPoints();
+        }
+        
+        return $this->result;
+    }
 
     public function getResult()
     {
